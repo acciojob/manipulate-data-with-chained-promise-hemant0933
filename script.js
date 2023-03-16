@@ -6,7 +6,7 @@ function MyPromise(arr){
 		setTimeout(()=>{
 			const filteredArr = arr.filter(item => item%2 === 0);
 
-			const manupulatedArr = filteredArr.map(num => num%2 === 0 ? num*2 : num);
+			const manupulatedArr = filteredArr.map(num => num%2 != 0 ? num*2 : num);
 			resolve(manupulatedArr);
 		},3000)
 	})
@@ -14,12 +14,13 @@ function MyPromise(arr){
 
 MyPromise([1,2,3,4]).then(filteredArr =>{
 	 setTimeout(() => {
-      document.getElementById("output").innerHTML = filteredArr.toString();
+      document.getElementById("output").innerHTML = filteredArr;
     }, 1000);
 	    return filteredArr;
 
 }).then(manupulatedArr=>{
 	setTimeout(() => {
-		document.getElementById("output").innerHTML = manupulatedArr.toString();
+		document.getElementById("output").innerHTML = manupulatedArr;
 	},2000)
+	
 })
