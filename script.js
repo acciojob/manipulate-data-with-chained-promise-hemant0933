@@ -7,7 +7,7 @@ function MyPromise(arr){
 			const filteredArr = arr.filter(item => item%2 === 0);
 
 			const manipulatedArr = filteredArr.map(num => num%2 === 0 ? num*2 : num);
-			resolve(manipulatedArr);
+			resolve(filteredArr, manipulatedArr);
 		},3000)
 	})
 }
@@ -16,7 +16,7 @@ MyPromise([1,2,3,4]).then(filteredArr =>{
 	 setTimeout(() => {
       document.getElementById("output").innerHTML = filteredArr.toString();
     }, 1000);
-	    return filteredArr;
+	    // return filteredArr;
 
 }).then(manipulatedArr=>{
 	setTimeout(() => {
