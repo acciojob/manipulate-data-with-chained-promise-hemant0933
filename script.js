@@ -6,21 +6,21 @@ function MyPromise(arr){
 		setTimeout(()=>{
 			const filteredArr = arr.filter(item => item%2 === 0);
 
-			const manupulatedArr = filteredArr.map(num => num%2 != 0 ? num*2 : num);
-			resolve(manupulatedArr);
+			const manipulatedArr = filteredArr.map(num => num%2 === 0 ? num*2 : num);
+			resolve(manipulatedArr);
 		},3000)
 	})
 }
 
 MyPromise([1,2,3,4]).then(filteredArr =>{
 	 setTimeout(() => {
-      document.getElementById("output").innerHTML = filteredArr;
+      document.getElementById("output").innerHTML = filteredArr.toString();
     }, 1000);
 	    return filteredArr;
 
-}).then(manupulatedArr=>{
+}).then(manipulatedArr=>{
 	setTimeout(() => {
-		document.getElementById("output").innerHTML = manupulatedArr;
+		document.getElementById("output").innerHTML = manupulatedArr.toString();
 	},2000)
 	
 })
